@@ -1,4 +1,4 @@
-import { ValueObject } from './vo.class'
+import { ValueObject } from '../../../shared/vo.class'
 import { UserEmailInvalidException } from '../exceptions/user.exception'
 import { err, ok, Result } from 'neverthrow'
 interface EmailProps {

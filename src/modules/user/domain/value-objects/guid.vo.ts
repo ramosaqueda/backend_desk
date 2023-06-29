@@ -1,5 +1,5 @@
 import { validate as uuidValidate } from 'uuid'
-import { ValueObject } from './vo.class'
+import { ValueObject } from '../../../shared/vo.class'
 import { UserGuidInvalidException } from '../exceptions/user.exception'
 import { err, ok, Result } from 'neverthrow'
 
