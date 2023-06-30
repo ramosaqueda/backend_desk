@@ -1,6 +1,8 @@
 import { DataSource } from 'typeorm'
 import { Bootstrap } from './base.bootstrap'
 import { UserEntity } from '../modules/user/infraestructure/user.entity' //ingrsar como ruta relativa
+import { SystemEntity } from '../modules/systems/infraestructure/system.entity'
+
 
 let appDataSource: DataSource
 
@@ -12,10 +14,10 @@ export default class extends Bootstrap {
 			port: 3308,
 			username: 'adminUser',
 			password: '12345',
-			database: 'chatpi',
+			database: 'ddDesk',
 			synchronize: true,
 			logging: true, //visualizar el log de la consulta por la terminal, practico para desarrollo. *
-			entities: [UserEntity], //array que recibirá las especificaciones de las entidades. *
+			entities: [UserEntity, SystemEntity], //array que recibirá las especificaciones de las entidades. *
 			migrations: [], //se pueden realizar modificaciones en la base de datos sin perder los datos existentes y sin la necesidad de realizar cambios manuales en el esquema de la base de datos.
 			subscribers: [], // permite definir observadores de procesos.
 		})

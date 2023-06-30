@@ -8,6 +8,7 @@ interface SystemRequired {
 }
 
 interface SystemOptional {
+	id:number,
 	active: boolean
 }
 
@@ -21,6 +22,7 @@ export	interface SystemUpdate {
 export type SystemProperties = Required<SystemRequired> & Partial<SystemOptional>
 
 export default class System  implements IEntity<SystemProperties, SystemUpdate>{
+	private id: number
 	private name: string
 	private description: string
 	private url: string
@@ -34,6 +36,7 @@ export default class System  implements IEntity<SystemProperties, SystemUpdate>{
 
 	properties(): SystemProperties {
 		return {
+			id:this.id,
 			name: this.name,
 			description: this.description,
 			url: this.url,

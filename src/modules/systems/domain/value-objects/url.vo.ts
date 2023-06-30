@@ -1,6 +1,6 @@
 import { ValueObject } from "src/modules/shared/vo.class"
-import {err, ok, Result} from 'neverthrow'
 import { SystemUrlInvalidException } from "../exceptions/system.exceptions"
+import {err, ok, Result} from 'neverthrow'
 interface UrlProps {
 	value:string
 }
