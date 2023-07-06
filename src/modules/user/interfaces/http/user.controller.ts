@@ -25,30 +25,27 @@ Esto es útil cuando deseas ejecutar una serie de funciones de midd
  leware en orden, donde cada una realiza una tarea específica.
 */
 
-
 	async insert(req: Request, res: Response, next: NextFunction) {
-		 const { name, lastname, email, password } = req.body
+		const { name, lastname, email, password } = req.body
 		const emailResult = EmailVO.create(email)
 		if (emailResult.isErr()) {
-		const err: IError = new Error(emailResult.error.message)
-		err.status = 411
-		return next(err)
+			const err: IError = new Error(emailResult.error.message)
+			err.status = 411
+			return next(err)
 		}
 
 		const userResult = await new UserFactory().create(name, lastname, emailResult.value, password)
 
 		if (userResult.isErr()) {
-		const err: IError = new Error(userResult.error.message)
-		err.status = 411
-		return next(err)
+			const err: IError = new Error(userResult.error.message)
+			err.status = 411
+			return next(err)
 		} else {
-		const data = await this.application.insert(userResult.value)
-		const result = new UserInsertMapping().execute(data.properties())
-		res.status(201).json(result)
+			const data = await this.application.insert(userResult.value)
+			const result = new UserInsertMapping().execute(data.properties())
+			res.status(201).json(result)
 		}
-
 	}
-
 
 	async list(_req: Request, res: Response) {
 		const list = await this.application.list()
@@ -96,7 +93,6 @@ Esto es útil cuando deseas ejecutar una serie de funciones de midd
 
 	async delete(req: Request, res: Response, next: NextFunction) {
 		const guid = req.params.guid
-
 
 		const guidResult = GuidVO.create(guid)
 		if (guidResult.isErr()) {

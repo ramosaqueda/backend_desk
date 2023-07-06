@@ -1,10 +1,8 @@
-import { Result } from "neverthrow"
-import System, { SystemUpdate } from "../domain/system"
-import {SystemNotFoundException} from '../domain/exceptions/system.exceptions'
+import { Result } from 'neverthrow'
+import System, { SystemUpdate } from '../domain/system'
+import { SystemNotFoundException } from '../domain/exceptions/system.exceptions'
 
-
-export interface SystemRepository
-{
+export interface SystemRepository {
 	insert(system: System): Promise<System>
 	list(): Promise<System[]>
 	listOne(id: number): Promise<Result<System, SystemNotFoundException>>

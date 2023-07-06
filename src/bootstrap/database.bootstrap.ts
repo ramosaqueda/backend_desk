@@ -3,7 +3,6 @@ import { Bootstrap } from './base.bootstrap'
 import { UserEntity } from '../modules/user/infraestructure/user.entity' //ingrsar como ruta relativa
 import { SystemEntity } from '../modules/systems/infraestructure/system.entity'
 
-
 let appDataSource: DataSource
 
 export default class extends Bootstrap {
@@ -12,9 +11,9 @@ export default class extends Bootstrap {
 			type: 'mysql', //driver utilizado
 			host: 'localhost',
 			port: 3308,
-			username: 'adminUser',
+			username: 'root',
 			password: '12345',
-			database: 'ddDesk',
+			database: 'bddDesk',
 			synchronize: true,
 			logging: true, //visualizar el log de la consulta por la terminal, practico para desarrollo. *
 			entities: [UserEntity, SystemEntity], //array que recibirá las especificaciones de las entidades. *

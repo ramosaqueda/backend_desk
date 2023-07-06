@@ -1,18 +1,23 @@
-import { ValueObject } from "src/modules/shared/vo.class"
-import { SystemUrlInvalidException } from "../exceptions/system.exceptions"
-import {err, ok, Result} from 'neverthrow'
+import { ValueObject } from '../../../shared/vo.class'
+
+import { SystemUrlInvalidException } from '../exceptions/system.exceptions'
+import { err, ok, Result } from 'neverthrow'
+
 interface UrlProps {
-	value:string
+	value: string
 }
+
+export type UrlResult = Result<urlVO, SystemUrlInvalidException>
 
 export class urlVO extends ValueObject<UrlProps> {
 	private constructor(props: UrlProps) {
 		super(props)
 	}
 
-	static create(url: string): Result<urlVO, Error> {
+	static create(url: string): UrlResult {
+		console.log(url)
 		if (!url.match(/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/gi)) {
-			return err(new SystemUrlInvalidException)
+			return err(new SystemUrlInvalidException())
 		}
 		return ok(new urlVO({ value: url }))
 	}
@@ -21,5 +26,3 @@ export class urlVO extends ValueObject<UrlProps> {
 		return this.props.value
 	}
 }
-
-

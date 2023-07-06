@@ -6,6 +6,7 @@ import routerHealt from './helpers/health'
 import HandlerErrors from './helpers/errors'
 import compression from 'compression'
 import routerUser from './modules/user/interfaces/http/user.routes'
+import routerSystem from './modules/systems/interfaces/http/system.routes'
 class App {
 	readonly expressApp: Application
 	constructor() {
@@ -17,18 +18,17 @@ class App {
 		this.mountError()
 	}
 
-
 	owaspSecurityMiddlewares() {
 		this.expressApp.use(hpp())
 		this.expressApp.use(helmet())
 		this.expressApp.use(
-		  cors({
-			 origin: '*',
-			 optionsSuccessStatus: 200,
-			 methods: ['GET', 'POST', 'PUT', 'DELETE'],
-		  }),
+			cors({
+				origin: '*',
+				optionsSuccessStatus: 200,
+				methods: ['GET', 'POST', 'PUT', 'DELETE'],
+			}),
 		)
-	 }
+	}
 	mountHealtCheck() {
 		this.expressApp.use('/', routerHealt)
 	}
@@ -37,7 +37,7 @@ class App {
 		this.expressApp.use(compression())
 		this.expressApp.use(express.json())
 		this.expressApp.use(express.urlencoded({ extended: true }))
-	 }
+	}
 	mountError(): void {
 		this.expressApp.use(HandlerErrors.notFound)
 	}
@@ -49,6 +49,7 @@ class App {
 
 	mountRoutes(): void {
 		this.expressApp.use('/user', routerUser)
+		this.expressApp.use('/system', routerSystem)
 	}
 }
 

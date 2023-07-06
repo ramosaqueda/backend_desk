@@ -11,7 +11,7 @@ export default class extends Bootstrap {
 			server.listen(3000).on('listening', () => {
 				resolve('Promesa resuelta con éxito')
 				console.log('Listening on http://localhost:3000')
-			}) //evento que se propaga para definir que en el puerto de expo. se esta ejecutando correctamente
+			})
 		})
 	}
 }

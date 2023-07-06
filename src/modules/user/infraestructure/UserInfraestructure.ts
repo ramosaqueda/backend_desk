@@ -2,7 +2,6 @@ import { err, ok, Result } from 'neverthrow'
 
 import DataBaseBootstrap from '../../../bootstrap/database.bootstrap'
 
-
 import { UserEmailInvalidException, UserNotFoundException } from '../domain/exceptions/user.exception'
 import User, { UserUpdate } from '../domain/user'
 import { UserRepository } from '../domain/user.repository'
@@ -115,7 +114,7 @@ export default class UserInfraestructure implements UserRepository {
 
 		if (userFound) {
 			userFound.active = false
-			 
+
 			const UserEntity = await repo.save(userFound)
 			const emailResult = EmailVO.create(UserEntity.email)
 			if (emailResult.isErr()) {

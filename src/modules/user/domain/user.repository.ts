@@ -12,6 +12,5 @@ export interface UserRepository {
 	update(guid: string, user: Partial<UserUpdate>): Promise<Result<User, UserNotFoundException>> //partial es un utilitario que permite pasar estructura de datos y utilizar en forma parcial
 	delete(guid: string): Promise<Result<User, UserNotFoundException>> //si el guid no existe, pedimos que nos retorne la excepción.
 
-
 	//aplication
 }

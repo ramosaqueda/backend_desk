@@ -1,20 +1,22 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity,  PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
 export class SystemEntity {
-	@PrimaryColumn()
+	@PrimaryGeneratedColumn()
 	id: number
 
 	@Column({ type: 'varchar', length: 100 })
 	name: string
 
+	@Column({ type: 'varchar', length: 300 })
+	description: string
+
 	@Column({ type: 'varchar', length: 100 })
 	url: string
 
 	@Column({ type: 'varchar', length: 100 })
-	active: string
+	class_css: string
 
-	@Column({ type: 'varchar', length: 100 })
-	passclass_css: string
-
+	@Column({ type: 'boolean', default: true })
+	active: boolean
 }

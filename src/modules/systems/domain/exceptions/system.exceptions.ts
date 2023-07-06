@@ -1,4 +1,4 @@
-import  {DomainException, DomainExceptionCode} from './domain.exceptions'
+import { DomainException, DomainExceptionCode } from './domain.exceptions'
 export class SystemNameRequiredException extends DomainException {
 	constructor() {
 		super(SystemNameRequiredException.getMessage())
@@ -9,54 +9,52 @@ export class SystemNameRequiredException extends DomainException {
 	}
 }
 
-
-	export class SystemDescriptionRequiredException extends DomainException {
-		constructor() {
-			super(SystemDescriptionRequiredException.getMessage())
-			this.name = DomainExceptionCode.SYSTEM_DESCRIPTION_REQUIRED
-		}
-		static getMessage() {
-			return 'Description is required'
-		}
+export class SystemDescriptionRequiredException extends DomainException {
+	constructor() {
+		super(SystemDescriptionRequiredException.getMessage())
+		this.name = DomainExceptionCode.SYSTEM_DESCRIPTION_REQUIRED
 	}
-
-	export class SystemUrlRequiredException extends DomainException {
-		constructor() {
-			super(SystemUrlRequiredException.getMessage())
-			this.name = DomainExceptionCode.SYSTEM_URL_REQUIRED
-		}
-		static getMessage() {
-			return 'Url is required'
-		}
+	static getMessage() {
+		return 'Description is required'
 	}
+}
 
-	export class SystemUrlInvalidException extends DomainException {
-		constructor() {
-			super(SystemUrlInvalidException.getMessage())
-			this.name = DomainExceptionCode.SYSTEM_URL_INVALID
-		}
-		static getMessage() {
-			return 'Url is invalid'
-		}
+export class SystemUrlRequiredException extends DomainException {
+	constructor() {
+		super(SystemUrlRequiredException.getMessage())
+		this.name = DomainExceptionCode.SYSTEM_URL_REQUIRED
 	}
-
-
-	export class SystemClassCssRequiredException extends DomainException {
-		constructor() {
-			super(SystemClassCssRequiredException.getMessage())
-			this.name = DomainExceptionCode.SYSTEM_CLASS_CSS_REQUIRED
-		}
-		static getMessage() {
-			return 'Class css is required'
-		}
+	static getMessage() {
+		return 'Url is required'
 	}
+}
 
-	export class SystemNotFoundException extends DomainException {
-		constructor() {
-			super(SystemNotFoundException.getMessage())
-			this.name = DomainExceptionCode.SYSTEM_NOT_FOUND
-		}
-		static getMessage() {
-			return 'System not found'
-		}
+export class SystemUrlInvalidException extends DomainException {
+	constructor() {
+		super(SystemUrlInvalidException.getMessage())
+		this.name = DomainExceptionCode.SYSTEM_URL_INVALID
 	}
+	static getMessage() {
+		return 'Url is invalid'
+	}
+}
+
+export class SystemClassCssRequiredException extends DomainException {
+	constructor() {
+		super(SystemClassCssRequiredException.getMessage())
+		this.name = DomainExceptionCode.SYSTEM_CLASS_CSS_REQUIRED
+	}
+	static getMessage() {
+		return 'Class css is required'
+	}
+}
+
+export class SystemNotFoundException extends DomainException {
+	constructor() {
+		super(SystemNotFoundException.getMessage())
+		this.name = DomainExceptionCode.SYSTEM_NOT_FOUND
+	}
+	static getMessage() {
+		return 'System not found'
+	}
+}

@@ -1,13 +1,15 @@
+// Objetivo: Realizar validações de dados de entrada
 import { validate } from 'class-validator'
 import { Request, Response, NextFunction } from 'express'
-import { UserListOneValidator } from '../validators/userListOne.validator'
+import { SystemListOneValidator } from '../validators/systemListOne.validator'
 
-class UserMiddleware {
+class SystemMiddleware {
 	static async ValidateListOne(req: Request, _res: Response, next: NextFunction) {
-		const { guid } = req.params
-		const userListOneValidator = new UserListOneValidator()
-		userListOneValidator.guid = guid
-		const errors = await validate(userListOneValidator)
+		const { id } = req.params
+		const my_id = parseInt(id)
+		const systemListOneValidator = new SystemListOneValidator()
+		systemListOneValidator.id = my_id
+		const errors = await validate(systemListOneValidator)
 
 		if (errors.length > 0) {
 			console.log(errors)
@@ -19,5 +21,5 @@ class UserMiddleware {
 }
 
 export const MiddlewareListOne: ((req: Request, res: Response, next: NextFunction) => Promise<void>)[] = [
-	UserMiddleware.ValidateListOne,
+	SystemMiddleware.ValidateListOne,
 ]
