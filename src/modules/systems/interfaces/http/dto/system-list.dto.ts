@@ -17,8 +17,7 @@ export class SystemListMapping extends DTO<SystemProperties[], SystemListDTO> {
 				description: system.description,
 				url: system.url,
 				class_css: system.class_css,
-		}
+			}
 		})
-
 	}
 }

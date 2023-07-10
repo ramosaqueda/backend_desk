@@ -17,9 +17,9 @@ class SystemRouter {
 	mountRoutes() {
 		this.expressRouter.post('/insert', controller.insert)
 		this.expressRouter.get('/list', controller.list)
-		this.expressRouter.post('/listOne/:guid', controller.listOne)
-		this.expressRouter.put('/update/:guid', controller.update)
-		this.expressRouter.delete('/delete/:guid', controller.delete)
+		this.expressRouter.post('/listOne/:id', controller.listOne)
+		this.expressRouter.put('/update/:id', controller.update)
+		this.expressRouter.delete('/delete/:id', controller.delete)
 	}
 }
 export default new SystemRouter().expressRouter

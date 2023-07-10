@@ -28,8 +28,7 @@ export default class {
 			return next(err)
 		}
 
-
-		const systemResult = await new SystemFactory().create(name, description, urlResult.value,  class_css)
+		const systemResult = await new SystemFactory().create(name, description, urlResult.value, class_css)
 
 		if (systemResult.isErr()) {
 			const err: IError = new Error(systemResult.error.message)
@@ -37,10 +36,10 @@ export default class {
 			return next(err)
 		} else {
 			console.log(systemResult.value)
-		/*	const data = await this.application.insert(systemResult.value)
+			const data = await this.application.insert(systemResult.value)
 			const result = new SystemInsertMapping().execute(data.properties())
-			res.status(201).json(result)*/
-			res.status(201).json({ message: 'System created' })
+			res.status(201).json(systemResult)
+			//res.status(201).json({ message: 'System created' })
 		}
 	}
 
@@ -48,7 +47,6 @@ export default class {
 		const list = await this.application.list()
 		const result = new SystemListMapping().execute(list.map(system => system.properties()))
 		res.json(result)
-
 	}
 
 	async listOne(req: Request, res: Response, next: NextFunction) {
@@ -68,6 +66,7 @@ export default class {
 
 	async update(req: Request, res: Response, next: NextFunction) {
 		const { id } = req.params
+		console.log('el ID es' + id)
 		const my_id = parseInt(id)
 		const fieldsToUpdate = req.body
 		const dataResult = await this.application.update(my_id, fieldsToUpdate)
@@ -83,6 +82,7 @@ export default class {
 
 	async delete(req: Request, res: Response, next: NextFunction) {
 		const id = req.params.id
+
 		const my_id = parseInt(id)
 		const dataResult = await this.application.delete(my_id)
 		if (dataResult.isErr()) {

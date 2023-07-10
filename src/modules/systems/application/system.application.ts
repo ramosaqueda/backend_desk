@@ -4,7 +4,6 @@ import { SystemRepository } from '../domain/system.repository'
 export default class SystemApplication {
 	constructor(private readonly systemRepository: SystemRepository) {}
 
-
 	insert(system: System) {
 		return this.systemRepository.insert(system)
 	}

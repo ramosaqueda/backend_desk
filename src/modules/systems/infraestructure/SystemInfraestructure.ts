@@ -10,11 +10,12 @@ import { SystemNotFoundException, SystemUrlInvalidException } from '../domain/ex
 export default class SystemInfraestructure implements SystemRepository {
 	async insert(system: System): Promise<System> {
 		const systemInsert = new SystemEntity()
-		const { id, name, url, active, class_css } = system.properties()
+		const { id, name, description, url, active, class_css } = system.properties()
 
 		Object.assign(systemInsert, {
 			id,
 			name,
+			description,
 			url: url.value,
 			class_css,
 			active,

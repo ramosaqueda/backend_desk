@@ -22,7 +22,6 @@ export interface SystemUpdate {
 
 export type SystemProperties = Required<SystemRequired> & Partial<SystemOptional>
 
-
 export default class System implements IEntity<SystemProperties, SystemUpdate> {
 	private readonly id: number
 	private name: string
@@ -30,7 +29,6 @@ export default class System implements IEntity<SystemProperties, SystemUpdate> {
 	private url: urlVO
 	private class_css: string
 	private active: boolean
-
 
 	constructor(systemProperties: SystemProperties) {
 		this.active = true

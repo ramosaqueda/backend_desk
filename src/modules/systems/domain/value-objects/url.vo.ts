@@ -15,8 +15,7 @@ export class urlVO extends ValueObject<UrlProps> {
 	}
 
 	static create(url: string): UrlResult {
-		console.log(url)
-		if (!url.match(/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/gi)) {
+		yarn ruif (!url.match(/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/gi)) {
 			return err(new SystemUrlInvalidException())
 		}
 		return ok(new urlVO({ value: url }))
