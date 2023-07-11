@@ -1,7 +1,7 @@
 // Objetivo: Realizar validações de dados de entrada
 import { validate } from 'class-validator'
 import { Request, Response, NextFunction } from 'express'
-import { SystemListOneValidator } from '../validators/systemListOne.validator'
+import { SystemListOneValidator } from '../validators/SystemListOne.validator'
 
 class SystemMiddleware {
 	static async ValidateListOne(req: Request, _res: Response, next: NextFunction) {

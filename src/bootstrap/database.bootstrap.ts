@@ -1,32 +1,25 @@
 import { DataSource } from 'typeorm'
 import { Bootstrap } from './base.bootstrap'
-import { UserEntity } from '../modules/user/infraestructure/user.entity' //ingrsar como ruta relativa
-import { SystemEntity } from '../modules/systems/infraestructure/system.entity'
+import { AppService } from './services/app.service'
+import { DbConfig } from './interfaces/dbconfig.interface'
 
 let appDataSource: DataSource
 
 export default class extends Bootstrap {
-	initialize(): Promise<DataSource> {
-		const AppDataSource = new DataSource({
-			type: 'mysql', //driver utilizado
-			host: 'localhost',
-			port: 3308,
-			username: 'root',
-			password: '12345',
-			database: 'bddDesk',
-			synchronize: true,
-			logging: true, //visualizar el log de la consulta por la terminal, practico para desarrollo. *
-			entities: [UserEntity, SystemEntity], //array que recibirá las especificaciones de las entidades. *
-			migrations: [], //se pueden realizar modificaciones en la base de datos sin perder los datos existentes y sin la necesidad de realizar cambios manuales en el esquema de la base de datos.
-			subscribers: [], // permite definir observadores de procesos.
-		})
+  initialize(): Promise<DataSource> {
+    const dbConfig: DbConfig = AppService.DBConfig
 
-		appDataSource = AppDataSource
+    const AppDataSource = new DataSource({
+      type: 'mysql',
+      ...dbConfig,
+    })
 
-		return AppDataSource.initialize()
-	}
+    appDataSource = AppDataSource
 
-	static get dataSource(): DataSource {
-		return appDataSource
-	}
+    return AppDataSource.initialize()
+  }
+
+  static get dataSource(): DataSource {
+    return appDataSource
+  }
 }
