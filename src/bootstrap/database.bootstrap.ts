@@ -9,7 +9,7 @@ let appDataSource: DataSource
 export default class extends Bootstrap {
   initialize(): Promise<DataSource> {
     const dbConfig: DB_CONFIG = AppService.DBConfig
-	 console.log(dbConfig)
+	 console.log(dbConfig.entities)
 
     const AppDataSource = new DataSource({
       type: 'mysql',

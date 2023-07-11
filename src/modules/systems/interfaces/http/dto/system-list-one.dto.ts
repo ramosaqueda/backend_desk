@@ -1,15 +1,8 @@
-import { SystemProperties } from 'src/modules/systems/domain/system'
-import { urlVO } from 'src/modules/systems/domain/value-objects/url.vo'
+import { SystemProperties } from 'src/modules/systems/domain/types/systemPropperties.type'
 import { DTO } from './dto.generic'
-interface SystemDTO {
-	name: string
-	description: string
-	url: urlVO
-	class_css: string
-}
-export type SystemDeleteDTO = SystemDTO
-export class SystemListOneMapping extends DTO<SystemProperties, SystemDeleteDTO> {
-	execute(data: SystemProperties): SystemDeleteDTO {
+import { SystemListOneDTO } from './types/systemListOne.type'
+export class SystemListOneMapping extends DTO<SystemProperties, SystemListOneDTO> {
+	execute(data: SystemProperties): SystemListOneDTO {
 		return {
 			name: data.name,
 			description: data.description,

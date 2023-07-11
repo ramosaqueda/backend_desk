@@ -1,4 +1,5 @@
-import System, { SystemUpdate } from '../domain/system'
+import System from '../domain/system'
+import { SystemUpdate } from '../domain/interfaces/systemUpdate.interface'
 import { SystemRepository } from '../domain/system.repository'
 
 export default class SystemApplication {

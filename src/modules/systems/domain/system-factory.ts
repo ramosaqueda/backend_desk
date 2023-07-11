@@ -1,5 +1,5 @@
 import System from './system'
-import { SystemProperties } from './system'
+import { SystemProperties } from './types/systemPropperties.type'
 import { urlVO } from './value-objects/url.vo'
 import { Result, err, ok } from 'neverthrow'
 import {

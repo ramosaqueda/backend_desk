@@ -1,26 +1,8 @@
 import { IEntity } from 'src/modules/shared/entity.interface'
+import { SystemUpdate } from './interfaces/systemUpdate.interface'
+import { SystemProperties } from './types/systemPropperties.type'
 import { urlVO } from './value-objects/url.vo'
 
-interface SystemRequired {
-	name: string
-	description: string
-	url: urlVO
-	class_css: string
-}
-
-interface SystemOptional {
-	id: number
-	active: boolean
-}
-
-export interface SystemUpdate {
-	name: string
-	description: string
-	url: urlVO
-	class_css: string
-}
-
-export type SystemProperties = Required<SystemRequired> & Partial<SystemOptional>
 
 export default class System implements IEntity<SystemProperties, SystemUpdate> {
 	private readonly id: number

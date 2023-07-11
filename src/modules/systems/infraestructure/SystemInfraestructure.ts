@@ -1,7 +1,8 @@
 import { err, ok, Result } from 'neverthrow'
 import DataBaseBootstrap from '../../../bootstrap/database.bootstrap'
 
-import System, { SystemUpdate } from '../domain/system'
+import System from '../domain/system'
+import { SystemUpdate } from '../domain/interfaces/systemUpdate.interface'
 import { SystemRepository } from '../domain/system.repository'
 import { urlVO } from '../domain/value-objects/url.vo'
 import { SystemEntity } from './system.entity'

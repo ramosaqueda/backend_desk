@@ -12,6 +12,7 @@ export class AppService {
          host: process.env.DB_HOST || 'localhost',
          port: +process.env.DB_PORT || 3308,
          entities: [process.env.DB_ENTITIES || 'dist/**/*.entity.js'],
+			//entities: [process.env.DB_ENTITIES || 'src/**/*.entity.ts'],
          username: process.env.DB_USER || 'adminUser',
          password: process.env.DB_PASS || '12345',
          database: process.env.DB_NAME || 'bddDesk',

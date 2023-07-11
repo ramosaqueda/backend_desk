@@ -1,8 +1,6 @@
-//importar las properties que puede debvolver
-import { UserProperties } from 'src/modules/user/domain/user'
+import { UserProperties } from 'src/modules/user/domain/types/userProperties.type'
 import { DTO } from './dto.generic'
 
-//creamos nuestra interfaz personalizada
 interface UserOneDTO {
 	name: string
 	lastname: string
@@ -12,7 +10,6 @@ interface UserOneDTO {
 
 export type UserListOneDTO = UserOneDTO
 
-//creamos la clase que implementa la interfaz heredada del singleton
 export class UserListOneMapping extends DTO<UserProperties, UserListOneDTO> {
 	execute(data: UserProperties): UserListOneDTO {
 		return {

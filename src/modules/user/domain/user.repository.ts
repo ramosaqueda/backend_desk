@@ -1,7 +1,7 @@
 //el reposiorio es una capa de comunicacion entre aplicación e infraestructura
 import { Result } from 'neverthrow'
-import User, { UserUpdate } from './user'
-
+import User from './user'
+import {UserUpdate} from './interfaces/userUpdate.interface'
 import { UserNotFoundException } from './exceptions/user.exception'
 
 // inversion de dependencias.

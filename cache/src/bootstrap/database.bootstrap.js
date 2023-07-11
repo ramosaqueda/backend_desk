@@ -7,6 +7,7 @@ let appDataSource;
 class default_1 extends base_bootstrap_1.Bootstrap {
     initialize() {
         const dbConfig = app_service_1.AppService.DBConfig;
+        console.log(dbConfig.entities);
         const AppDataSource = new typeorm_1.DataSource({
             type: 'mysql',
             ...dbConfig,

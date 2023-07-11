@@ -1,5 +1,6 @@
 import { Result } from 'neverthrow'
-import System, { SystemUpdate } from '../domain/system'
+import System from '../domain/system'
+import { SystemUpdate } from '../domain/interfaces/systemUpdate.interface'
 import { SystemNotFoundException } from '../domain/exceptions/system.exceptions'
 
 export interface SystemRepository {

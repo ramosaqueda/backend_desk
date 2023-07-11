@@ -1,4 +1,5 @@
-import { DomainException, DomainExceptionCode } from './domain.exceptions'
+import { DomainException } from './domain.exceptions'
+import { DomainExceptionCode } from './enums/domainException.enum'
 export class SystemNameRequiredException extends DomainException {
 	constructor() {
 		super(SystemNameRequiredException.getMessage())

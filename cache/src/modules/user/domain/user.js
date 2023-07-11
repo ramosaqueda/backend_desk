@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class User {
-    constructor(usertProperties) {
+    constructor(userProperties) {
         this.active = true;
-        Object.assign(this, usertProperties);
+        Object.assign(this, userProperties);
     }
     properties() {
         return {

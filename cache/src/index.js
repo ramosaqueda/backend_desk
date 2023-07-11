@@ -10,8 +10,8 @@ const serverBootstrap = new server_bootstrap_1.default(app_1.default);
 const databaseBootstrap = new database_bootstrap_1.default();
 (async () => {
     try {
-        await serverBootstrap.initialize(), console.log('Database started successfully');
-        await databaseBootstrap.initialize();
+        await databaseBootstrap.initialize(), console.log('Database started successfully');
+        await serverBootstrap.initialize();
     }
     catch (error) {
         console.log(error);
