@@ -1,12 +1,11 @@
-export interface DbConfig {
-	host: string,
-	port: number,
-	entities: string[],
-	username: string,
-	password: string,
-	database: string,
-	synchronize: boolean,
-	logging: true,
+export interface DB_CONFIG {
+	host: string
+	port: number
+	entities: string[]
+	username: string
+	password: string
+	database: string
+	synchronize: boolean
+	logging: boolean
 	connectionTimeout: number
-
-}
+ }

@@ -5,8 +5,7 @@
 	] /* definimos que todos los plugins y parsers son heredaders de typescript-eslint */,
 	"parser": "@typescript-eslint/parser" /* añadirle reglas específicas de ts al eslint */,
 	"extends": [
-		/* plugins de soporte para ts para eslint */
-		"eslint:recommended",
+		/* plugins de soporte para ts para eslint */ "eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
@@ -15,6 +14,8 @@
 		"quotes": ["error", "single"] /* si no es comilla simple lo toma como error */,
 		"@typescript-eslint/no-explicit-any": ["warn"] /* si es hay tipos "any" los toma como warn */,
 		"curly": "error" /* si hay definiciones faltantes con {} me tire error */,
-		"no-empty": "error" /* no se aceptan definiciones vacías */
+		"no-empty": "error" /* no se aceptan definiciones vacías */,
+		"@typescript-eslint/no-var-requires": "off",
+		"no-undef": "off"
 	}
 }

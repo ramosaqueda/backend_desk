@@ -1,25 +1,23 @@
-import { DbConfig } from '../interfaces/dbconfig.interface'
-import yenv from 'yenv'
+import { DB_CONFIG } from '../interfaces/dbconfig.interface'
 
-const env = yenv('.env')
 
 export class AppService {
    static get PORT(): number {
-      return +env.PORT || 3000
+      return +process.env.PORT || 3000
    }
 
-   static get DBConfig(): DbConfig {
-      const pass = env.DB_PASS.toString();
+   static get DBConfig(): DB_CONFIG {
+      //const pass = process.env.DB_PASS.toString();
       return {
-         host: env.DB_HOST || 'localhost',
-         port: +env.DB_PORT || 3308,
-         entities: [env.DB_ENTITIES || 'dist/**/*.entity.js'],
-         username: env.DB_USER || 'adminUser',
-         password: pass || '12345',
-         database: env.DB_NAME || 'bddDesk',
-         synchronize: env.DB_SYNC || false,
-         logging: env.DB_LOGG || false,
-         connectionTimeout: +env.CONNECTION_TIMEOUT || 3000
+         host: process.env.DB_HOST || 'localhost',
+         port: +process.env.DB_PORT || 3308,
+         entities: [process.env.DB_ENTITIES || 'dist/**/*.entity.js'],
+         username: process.env.DB_USER || 'adminUser',
+         password: process.env.DB_PASS || '12345',
+         database: process.env.DB_NAME || 'bddDesk',
+         synchronize: process.env.DB_SYNC ==='true' ? true:false,
+         logging: process.env.DB_LOGG ==='true' ? true:false,
+         connectionTimeout: +process.env.CONNECTION_TIMEOUT || 3000
       }
    }
 }
