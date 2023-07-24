@@ -14,18 +14,12 @@ const user_list_dto_1 = require("./dto/user-list.dto");
 class default_1 {
     constructor(application) {
         this.application = application;
-        // Design Pattern Mediator: https://refactoring.guru/es/design-patterns/mediator
-        this.insert = this.insert.bind(this); //desde la especificacion desde este controlador, cuando se llame desde afuera, apunte a una referencia de esta clases/ esto simplifica las rutas
+        this.insert = this.insert.bind(this);
         this.list = this.list.bind(this);
         this.listOne = this.listOne.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
     }
-    /*La función next() es un argumento que se pasa a cada función de middleware en Express. Cuando se llama a next(), le indica a Express que pase el
-control a la siguiente función de middleware.
-Esto es útil cuando deseas ejecutar una serie de funciones de midd
- leware en orden, donde cada una realiza una tarea específica.
-*/
     async insert(req, res, next) {
         const { name, lastname, email, password } = req.body;
         const emailResult = email_VO_1.EmailVO.create(email);
@@ -52,7 +46,6 @@ Esto es útil cuando deseas ejecutar una serie de funciones de midd
         res.json(result);
     }
     async listOne(req, res, next) {
-        //debemos llamar aplicacion.
         const { guid } = req.params;
         const guiResult = guid_vo_1.GuidVO.create(guid);
         if (guiResult.isErr()) {
@@ -67,14 +60,13 @@ Esto es útil cuando deseas ejecutar una serie de funciones de midd
             }
             else if (userResult.isOk()) {
                 const result = new user_list_one_dto_1.UserListOneMapping().execute(userResult.value.properties());
-                //return res.status(200).json(result)
-                return res.json(result); //por defecto, cuando el resultado es OK retorna el 200
+                return res.json(result);
             }
         }
     }
     async update(req, res, next) {
         const { guid } = req.params;
-        const fieldsToUpdate = req.body; //objeto con los rgistros que desamos modificar
+        const fieldsToUpdate = req.body;
         const guidResult = guid_vo_1.GuidVO.create(guid);
         if (guidResult.isErr()) {
             const err = new Error(guidResult.error.message);

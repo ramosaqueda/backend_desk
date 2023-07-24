@@ -3,9 +3,6 @@ import { UserUpdate } from '../domain/interfaces/userUpdate.interface'
 import { UserRepository } from '../domain/user.repository'
 
 export default class UserApplication {
-	//Principio solid: Inversión de depenecias. dependemos del repositorio
-	//Patrón de diseño: injection dependeny, que permite aplicar el principio solid anteior https://desarrolloweb.com/articulos/patron-diseno-contenedor-dependencias.html
-
 	constructor(private readonly userRepository: UserRepository) {}
 
 	insert(user: User) {

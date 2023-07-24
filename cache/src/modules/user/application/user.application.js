@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class UserApplication {
-    //Principio solid: Inversión de depenecias. dependemos del repositorio
-    //Patrón de diseño: injection dependeny, que permite aplicar el principio solid anteior https://desarrolloweb.com/articulos/patron-diseno-contenedor-dependencias.html
     constructor(userRepository) {
         this.userRepository = userRepository;
     }

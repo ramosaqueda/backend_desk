@@ -10,10 +10,8 @@ class EmailVO extends vo_class_1.ValueObject {
     }
     static create(email) {
         if (!email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/gi)) {
-            //throw new Error("It's not a valid email address") //este error podria generar problemas, ya que la lanzarse el error, ete deja pegado el server.
             return (0, neverthrow_1.err)(new user_exception_1.UserEmailInvalidException());
         }
-        //return new EmailVO({ value: email })
         return (0, neverthrow_1.ok)(new EmailVO({ value: email }));
     }
     get value() {
