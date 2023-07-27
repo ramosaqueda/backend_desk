@@ -1,12 +1,11 @@
 {
-   "AWSEBDockerrunVersion": "1",
-   "Image": {
-      "Name": "605516780613.dkr.ecr.us-east-1.amazonaws.com/appdeskwebapi:latest"
-
-   },
-   "PORTS": [
-      {
-         "ContainerPort": "80"
-      }
-   ]
+	"AWSEBDockerrunVersion": "1",
+	"Image": {
+		"Name": "605516780613.dkr.ecr.us-east-1.amazonaws.com/appdeskwebapi:latest"
+	},
+	"PORTS": [
+		{
+			"ContainerPort": "80"
+		}
+	]
 }

@@ -1,23 +1,28 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
+const yenv_1 = __importDefault(require("yenv"));
+const env = (0, yenv_1.default)('.env');
 class AppService {
     static get PORT() {
-        return +process.env.PORT || 3000;
+        return +env.PORT || 3000;
     }
     static get DBConfig() {
-        //const pass = process.env.DB_PASS.toString();
+        const pass = env.DB_PASS.toString();
         return {
-            host: process.env.DB_HOST || 'localhost',
-            port: +process.env.DB_PORT || 3308,
-            entities: [process.env.DB_ENTITIES || 'dist/**/*.entity.js'],
+            host: env.DB_HOST || 'cont-mysqlserver',
+            port: +env.DB_PORT || 3306,
             //entities: [process.env.DB_ENTITIES || 'src/**/*.entity.ts'],
-            username: process.env.DB_USER || 'adminUser',
-            password: process.env.DB_PASS || '12345',
-            database: process.env.DB_NAME || 'bddDesk',
-            synchronize: process.env.DB_SYNC === 'true' ? true : false,
-            logging: process.env.DB_LOGG === 'true' ? true : false,
-            connectionTimeout: +process.env.CONNECTION_TIMEOUT || 3000
+            entities: [env.DB_ENTITIES || 'dist/**/*.entity.js'],
+            username: env.DB_USER || 'adminUser',
+            password: pass || '12345',
+            database: env.DB_NAME || 'bddDesk',
+            synchronize: env.DB_SYNC || false,
+            logging: env.DB_LOGG || false,
+            connectionTimeout: +env.CONNECTION_TIMEOUT || 3000
         };
     }
 }

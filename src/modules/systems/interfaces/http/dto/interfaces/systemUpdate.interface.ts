@@ -6,4 +6,3 @@ export interface SystemDTO {
 	url: urlVO
 	class_css: string
 }
-

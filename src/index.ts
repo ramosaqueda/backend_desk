@@ -14,5 +14,3 @@ const databaseBootstrap: Bootstrap = new DatabaseBootstrap()
 		console.log(error)
 	}
 })()
-
-

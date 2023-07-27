@@ -1,6 +1,6 @@
 import { Result } from 'neverthrow'
 import User from './user'
-import {UserUpdate} from './interfaces/userUpdate.interface'
+import { UserUpdate } from './interfaces/userUpdate.interface'
 import { UserNotFoundException } from './exceptions/user.exception'
 
 export interface UserRepository {

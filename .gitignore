@@ -2,3 +2,5 @@ node_modules
 docker
 cache
 dist
+.env
+.env.local

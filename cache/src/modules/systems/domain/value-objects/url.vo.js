@@ -9,7 +9,7 @@ class urlVO extends vo_class_1.ValueObject {
         super(props);
     }
     static create(url) {
-        if (!url.match(/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/gi)) {
+        if (!url.match(/^https?:\/\/[\w-]+(\.[\w-]+)+[/#?]?.*$/gi)) {
             return (0, neverthrow_1.err)(new system_exceptions_1.SystemUrlInvalidException());
         }
         return (0, neverthrow_1.ok)(new urlVO({ value: url }));

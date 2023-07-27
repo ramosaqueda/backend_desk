@@ -8,4 +8,4 @@ export interface DB_CONFIG {
 	synchronize: boolean
 	logging: boolean
 	connectionTimeout: number
- }
+}

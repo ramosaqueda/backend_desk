@@ -3,7 +3,6 @@ import { SystemUpdate } from './interfaces/systemUpdate.interface'
 import { SystemProperties } from './types/systemPropperties.type'
 import { urlVO } from './value-objects/url.vo'
 
-
 export default class System implements IEntity<SystemProperties, SystemUpdate> {
 	private readonly id: number
 	private name: string

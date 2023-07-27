@@ -12,13 +12,12 @@ import { UserListMapping } from './dto/user-list.dto'
 
 export default class {
 	constructor(private application: UserApplication) {
- 		this.insert = this.insert.bind(this)
+		this.insert = this.insert.bind(this)
 		this.list = this.list.bind(this)
 		this.listOne = this.listOne.bind(this)
 		this.update = this.update.bind(this)
 		this.delete = this.delete.bind(this)
 	}
-
 
 	async insert(req: Request, res: Response, next: NextFunction) {
 		const { name, lastname, email, password } = req.body
@@ -48,7 +47,7 @@ export default class {
 		res.json(result)
 	}
 	async listOne(req: Request, res: Response, next: NextFunction) {
- 		const { guid } = req.params
+		const { guid } = req.params
 		const guiResult = GuidVO.create(guid)
 		if (guiResult.isErr()) {
 			const err: IError = new Error(guiResult.error.message)
@@ -60,7 +59,7 @@ export default class {
 				return res.status(404).json({ message: userResult.error.message })
 			} else if (userResult.isOk()) {
 				const result = new UserListOneMapping().execute(userResult.value.properties())
- 				return res.json(result)
+				return res.json(result)
 			}
 		}
 	}
