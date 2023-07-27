@@ -18,8 +18,9 @@ Proyecto Backend final para curso de node y ts avanzado. Este proyecto correspon
 
 `yarn` or `npm install`
 
-5. Downlod and Install MySQL
-
-[title](https://dev.mysql.com/downloads/installer/)
+5. Downlod and Install MySQL from [MysqlServer](https://dev.mysql.com/downloads/installer/)
    
-7. 
+7. Create
+
+`CREATE DATABASE 'bddDesk' /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;`
+
