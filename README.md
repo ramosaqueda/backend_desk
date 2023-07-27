@@ -21,10 +21,15 @@ Proyecto Backend final para curso de node y ts avanzado. Este proyecto correspon
 5.-Run the app, this starts the Backend-desk application at http://localhost:3000/:
 
 `docker-compose up`
+
 `docker build -t node-api-final :1.0.0 . `
+
 `docker network create node-app-net`
+
 `docker network connect node-app-server cont-mysqlserver`
+
 ` docker run -d --name node-app-desk  -p 3000:3000 -e DB_HOST:cont-mysqlserver -e DB_PORT=3308 --network node-app-net node-api-desk:1.0.0`
+
 
 # OPTION 2 - Run Backend-desk on your machine
 1. Install Node.js - Backend_desk requires Node v8 or above
