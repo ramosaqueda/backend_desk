@@ -1,5 +1,8 @@
 import { DB_CONFIG } from '../interfaces/dbconfig.interface'
+import yenv from 'yenv'
 
+
+const env = yenv('.env')
 
 export class AppService {
    static get PORT(): number {
@@ -7,18 +10,21 @@ export class AppService {
    }
 
    static get DBConfig(): DB_CONFIG {
-      //const pass = process.env.DB_PASS.toString();
+      const pass = env.DB_PASS.toString();
       return {
-         host: process.env.DB_HOST || 'localhost',
-         port: +process.env.DB_PORT || 3308,
-         entities: [process.env.DB_ENTITIES || 'dist/**/*.entity.js'],
-			//entities: [process.env.DB_ENTITIES || 'src/**/*.entity.ts'],
-         username: process.env.DB_USER || 'adminUser',
-         password: process.env.DB_PASS || '12345',
-         database: process.env.DB_NAME || 'bddDesk',
-         synchronize: process.env.DB_SYNC ==='true' ? true:false,
-         logging: process.env.DB_LOGG ==='true' ? true:false,
-         connectionTimeout: +process.env.CONNECTION_TIMEOUT || 3000
+			host: env.DB_HOST || 'localhost',
+         port: +env.DB_PORT || 3308,
+         //entities: [process.env.DB_ENTITIES || 'src/**/*.entity.ts'],
+         entities: [env.DB_ENTITIES || 'dist/**/*.entity.js'],
+         username: env.DB_USER || 'adminUser',
+         password: pass || '12345',
+         database: env.DB_NAME || 'bddDesk',
+         synchronize: env.DB_SYNC || false,
+         logging: env.DB_LOGG || false,
+         connectionTimeout: +env.CONNECTION_TIMEOUT || 3000
       }
    }
 }
+
+
+

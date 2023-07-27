@@ -14,8 +14,8 @@ phases:
    build:
       commands:
       - echo Build started on `date` # ocupamos la función de fecha para saber cuando se disparo este proceso
-      - echo building the docker image # notificación de que se va a construir una imagen de docker
-      #- aws s3 cp s3://mybucketnodetarde/prd-tarde/.env .env # el .env es el nombre del archivo que quiero darle
+      - echo building the docker image # notificación de que se va a construir una imagen de docker #-
+		- aws s3 cp s3://mybucketwdesk/prod/.env .env # el .env es el nombre del archivo que quiero darle
       - docker build -t $REPOSITORY_URI:latest . # creo la imagen desde la raíz del proyecto hacia el repository
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG # creo una imagen de respaldo con una copia de la imagen actual
 
